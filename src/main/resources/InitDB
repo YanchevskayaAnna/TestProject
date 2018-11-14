@@ -1,0 +1,38 @@
+CREATE DATABASE UZ;
+USE UZ;
+CREATE TABLE trains(
+  id int NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+  train_name VARCHAR (20),
+  train_number VARCHAR (20)
+);
+
+INSERT INTO trains(train_name, train_number) VALUES ('Киев-Одесса',  '145');
+INSERT INTO trains(train_name, train_number) VALUES ('Киев-Ужгород', '201');
+INSERT INTO trains(train_name, train_number) VALUES ('Киев-Хмельницкий', '199');
+
+SELECT * FROM trains;
+
+CREATE TABLE carriages(
+  id int NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+  carriage_number int,
+  carriage_comfortLevel int,
+  carriage_countofpassengers int,
+  carriage_luggageweight int,
+  carriage_typeofcarriage VARCHAR (20),
+  id_train int
+);
+
+INSERT INTO carriages(carriage_number, carriage_comfortLevel, carriage_countofpassengers, carriage_luggageweight, carriage_typeofcarriage, id_train)
+VALUES (1,  1, 10, 0, 'Passenger', 1);
+INSERT INTO carriages(carriage_number, carriage_comfortLevel, carriage_countofpassengers, carriage_luggageweight, carriage_typeofcarriage, id_train)
+VALUES (2,  1, 12, 0, 'Passenger', 1);
+INSERT INTO carriages(carriage_number, carriage_comfortLevel, carriage_countofpassengers, carriage_luggageweight, carriage_typeofcarriage, id_train)
+VALUES (3,  2, 8, 0, 'Passenger', 1);
+INSERT INTO carriages(carriage_number, carriage_comfortLevel, carriage_countofpassengers, carriage_luggageweight, carriage_typeofcarriage, id_train)
+VALUES (4,  3, 10, 0, 'Passenger', 1);
+INSERT INTO carriages(carriage_number, carriage_comfortLevel, carriage_countofpassengers, carriage_luggageweight, carriage_typeofcarriage, id_train)
+VALUES (5,  3, 12, 0, 'Passenger', 1);
+INSERT INTO carriages(carriage_number, carriage_comfortLevel, carriage_countofpassengers, carriage_luggageweight, carriage_typeofcarriage, id_train)
+VALUES (6,  2, 8, 0, 'Passenger', 1);
+
+SELECT * FROM carriages;
