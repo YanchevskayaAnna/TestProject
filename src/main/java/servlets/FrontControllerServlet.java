@@ -21,7 +21,9 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 //https://www.baeldung.com/java-front-controller-pattern
 

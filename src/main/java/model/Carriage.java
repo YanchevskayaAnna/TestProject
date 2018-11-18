@@ -7,17 +7,17 @@ import anotations.Table;
 public class Carriage extends _IDEntity{
 
     @Column(name = "carriage_number")
-    int number;
+    private int number;
     @Column(name = "carriage_comfortlevel")
-    int comfortLevel;
+    private int comfortLevel;
     @Column(name = "carriage_countofpassengers")
-    int countOfPassengers;
+    private int countOfPassengers;
     @Column(name = "carriage_luggageweight")
-    int luggageWeight;
+    private int luggageWeight;
     @Column(name = "carriage_typeofcarriage")
-    TypeOfCarriage typeOfCarriage;
+    private TypeOfCarriage typeOfCarriage;
     @Column(name = "id_train")
-    int idTrain;
+    private int idTrain;
 
     public int getNumber() {
         return number;

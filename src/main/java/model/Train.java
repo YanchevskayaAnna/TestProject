@@ -10,14 +10,14 @@ import java.util.Objects;
 public class Train extends _IDEntity{
 
     @Column(name = "train_name")
-    String name;
+    private String name;
 
     @Column(name = "train_number")
-    String number;
+    private String number;
 
-    int luggageWeight;
+    private int luggageWeight;
 
-    int countOfPassengers;
+    private int countOfPassengers;
 
 //    List<Carriage> carriageList; //to do связи в SQL
 

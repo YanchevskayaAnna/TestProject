@@ -1,13 +1,11 @@
 package model;
 
-
-import anotations.Column;
 import anotations.Id;
 
 public abstract class _IDEntity implements _iIDEntity {
 
     @Id
-    public Integer id;
+    protected Integer id;
 
     public Integer getId() {
         return id;

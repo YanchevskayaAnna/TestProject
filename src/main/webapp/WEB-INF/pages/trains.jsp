@@ -1,13 +1,22 @@
 <%@include file="include.jsp" %>
 <html>
 <head>
-    <title>Train information</title>
+     <fmt:setLocale value="${empty sessionScope.lang ? 'en' :sessionScope.lang}"/>
+     <fmt:setBundle basename="resources" var="bundle"/>
+     <title><fmt:message key="TrainInformation" bundle="${bundle}"/></title>
 </head>
 
-<body style="background-image: url('/resources/images/train.jpg')">
+<body>
+
+ <form action="" method="get">
+    <input type="hidden" name="command" value="ChangeLanguage">
+    <button name="lang" type="submit" value="en">en</button>
+    <button name="lang" type="submit" value="ru">ru</button>
+    <button name="lang" type="submit" value="uk">ua</button>
+ </form>
 
  <div class="centerDiv" align="center">
-     <h1>Trains</h1>
+     <h1><fmt:message key="Trains" bundle="${bundle}"/></h1>
  </div>
 
 <c:set var="trains" value="${trains}"/>
