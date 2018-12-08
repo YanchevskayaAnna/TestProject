@@ -12,6 +12,14 @@ public class Train extends _IDEntity{
     @Column(name = "train_name")
     private String name;
 
+    public Train() {
+    }
+
+    public Train(String name, String number) {
+        this.name = name;
+        this.number = number;
+    }
+
     @Column(name = "train_number")
     private String number;
 
