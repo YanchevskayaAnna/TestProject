@@ -2,11 +2,12 @@ package unit;
 
 import dao.SQLDao.SQLTrainDAO;
 import model.Train;
-import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-import org.mockito.internal.matchers.Null;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 import services.impl.TrainService;
 import services.interfaces.ITrainService;
 
@@ -14,43 +15,32 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.*;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.notNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-
-public class TestMock {
-
+//@RunWith(MockitoJUnitRunner.class)
+public class TestMock2 {
+    @Mock
+    SQLTrainDAO trainDao;
     private static ITrainService trainService;
 
-    @BeforeClass
-    public static void init() {
-
+    @Before
+    public void before(){
+        MockitoAnnotations.initMocks(this); //analog @RunWith(MockitoJUnitRunner.class)
         Train train1 = new Train("Киев-Харьков", "123");
         Train train2 = new Train("Киев-Херсон", "124");
         Train train3 = new Train("Киев-Хмельницкий", "125");
 
-        SQLTrainDAO trainDao = mock(SQLTrainDAO.class);
         when(trainDao.getAll()).thenReturn(
                 Arrays.asList(
                         train1, train2, train3));
 
-        //when(trainDao.getById(1)).thenReturn(...)
-        //when(trainDao.getById(2)).thenReturn(...)
-        //when(trainDao.getById(anyInt())).thenReturn(...)
-        //when(trainDao.getAll()).thenThrow(new NullPointerException());
-
-
-        trainService = new TrainService(trainDao);
+       trainService = new TrainService(trainDao);
     }
 
     @Test
     public void getAllTrains() {
         assertNotNull(trainService.getAllTrains());
         assertTrue(trainService.getAllTrains().size() == 3);
-
+        verify(trainDao, times(2)).getAll();
     }
-
 }
